@@ -7,7 +7,7 @@ fetchAllData()
     .then(makeCalculations)
     .catch(console.error)
 
-async function fetchAllData() {
+function fetchAllData() {
     const consumptionDataUrl = `https://api.openvolt.com/v1/interval-data?meter_id=${meterId}&granularity=hh&start_date=2023-01-01&end_date=2023-01-31`
     const consumptionDataOptions = { headers: { accept: 'application/json', 'x-api-key': apiKey } }
     const consumptionDataPromise = fetch(consumptionDataUrl, consumptionDataOptions).then(res =>
@@ -17,8 +17,8 @@ async function fetchAllData() {
     )
 
     // Both timestamps in the url are treated as the end of the half-hour interval.
-    const intesityDataUrl = `https://api.carbonintensity.org.uk/intensity/2023-01-01T00:30:00/2023-02-01T00:00:00`
-    const intensityDataPromise = fetch(intesityDataUrl).then(res =>
+    const intensityDataUrl = `https://api.carbonintensity.org.uk/intensity/2023-01-01T00:30:00/2023-02-01T00:00:00`
+    const intensityDataPromise = fetch(intensityDataUrl).then(res =>
         res.status == 200
             ? <Promise<IntensityData>>res.json().catch(err => Promise.reject("Failed to parse intensity data: " + err))
             : res.text().then(text => Promise.reject("Got non-200 response while fetching intensity data: " + text.replaceAll("\r", "\n")))
