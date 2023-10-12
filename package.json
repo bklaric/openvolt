@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "run": "npx tsc && node main.js"
+  },
+  "dependencies": {
+    "node-fetch": "^3.3.2",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.4"
+  }
+}

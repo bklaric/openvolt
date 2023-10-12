@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "NodeNext",
+        "target": "ESNext",
+        "strict": true
+    },
+    "include": [
+        "main.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ],
+
+}
